@@ -87,6 +87,8 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
+ annotations:
+  external-dns.alpha.kubernetes.io/hostname: kong-app.sandbox.inkcloud.io
  name: httproute-hostname
 spec:
  parentRefs:
