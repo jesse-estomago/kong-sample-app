@@ -73,16 +73,20 @@ metadata:
   konghq.com/strip-path: 'true'
 spec:
  parentRefs:
- - name: kong
+ - group: gateway.networking.k8s.io		
+   kind: Gateway
+   name: kong
  rules:
  - matches:
    - path:
        type: PathPrefix
        value: /echo
    backendRefs:
-   - name: echo
+   - group: ''		
      kind: Service
+     name: echo
      port: 1027
+     weight: 1
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -90,12 +94,16 @@ metadata:
  name: httproute-hostname
 spec:
  parentRefs:
- - name: kong
+ - group: gateway.networking.k8s.io		
+   kind: Gateway
+   name: kong
  hostnames:
   - kong-app.sandbox.inkcloud.io
  rules:
  - backendRefs:
-   - name: echo
+   - group: ''		
      kind: Service
+     name: echo
      port: 1027
+     weight: 1
 ---
