@@ -21,3 +21,16 @@ spec:
     - name: proxy
       port: 80
       protocol: HTTP
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-4"
+  name: kong2
+spec:
+  gatewayClassName: kong
+  listeners:
+    - name: proxy
+      port: 80
+      protocol: HTTP
