@@ -99,6 +99,7 @@ spec:
    name: kong
  hostnames:
   - kong-app.sandbox.inkcloud.io
+  - kong-app2.sandbox.inkcloud.io
  rules:
  - matches:
    - path:
