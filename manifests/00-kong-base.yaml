@@ -14,7 +14,7 @@ kind: Gateway
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-4"
-    #external-dns.alpha.kubernetes.io/hostname: kong-app.sandbox.inkcloud.io
+    external-dns.alpha.kubernetes.io/hostname: kong-app.sandbox.inkcloud.io,kong-app2.sandbox.inkcloud.io
   name: kong
 spec:
   gatewayClassName: kong
@@ -27,7 +27,6 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   annotations:
-    #external-dns.alpha.kubernetes.io/hostname: kong-app2.sandbox.inkcloud.io
     argocd.argoproj.io/sync-wave: "-4"
   name: kong2
 spec:
