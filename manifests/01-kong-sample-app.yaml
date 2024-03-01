@@ -100,7 +100,11 @@ spec:
  hostnames:
   - kong-app.sandbox.inkcloud.io
  rules:
- - backendRefs:
+ - matches:
+   - path:
+       type: PathPrefix
+       value: /
+   backendRefs:
    - group: ''		
      kind: Service
      name: echo
